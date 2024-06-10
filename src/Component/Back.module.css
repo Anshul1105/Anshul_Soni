@@ -1,0 +1,13 @@
+/* .img_container{
+    max-width: 0.5rem;
+} */
+.container{
+    margin: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.text{
+    font-size:larger;
+    margin-left: 1rem;
+    color: #fff;
+}
