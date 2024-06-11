@@ -6,6 +6,7 @@ import ContactUs from '../assets/FAB/ContactUs.png'
 import GiveSuggestion from '../assets/FAB/GiveSuggestion.png'
 import ReportIssue from '../assets/FAB/ReportIssue.png'
 import ShareFeedback from '../assets/FAB/ShareFeedback.png'
+import Report from './Report.jsx'
 
 const Fab = () => {
 
@@ -14,6 +15,14 @@ const Fab = () => {
     const handleClick = () => {
         setIsOpen(!isOpen);
     };
+
+    const [showReport, setShowReport] = useState(false);
+
+    const handleReportClick = () =>{
+        setShowReport(!showReport);
+    }
+
+
 
     return (<>
         <div class="fab-container">
@@ -28,10 +37,13 @@ const Fab = () => {
             {/* <ul class="fab-options"> */}
             <ul className={`fab-options ${isOpen ? 'open' : ''}`}>
                 <li>
-                    <span class="fab-label">Report an Issue</span>
+                    <span onClick={handleReportClick} class="fab-label">Report an Issue</span>
                     <div class="fab-icon-holder" style={{backgroundImage:{ReportIssue},objectFit:"cover"}}>
-                        <i><img src={ReportIssue} alt="Report Issue" /></i>
+                        <i onClick={handleReportClick}><img src={ReportIssue} alt="Report Issue" /></i>
                     </div>
+                    {showReport && <Report onClose={()=>{
+                        setShowReport(false)
+                    }}></Report>}
                 </li>
                 <li>
                     <span class="fab-label">Share Feedback</span>

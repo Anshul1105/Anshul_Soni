@@ -7,7 +7,7 @@ import Question from './Component/Question'
 import Back from './Component/Back'
 import Answer from './Component/Answer'
 import Fab from './Component/Fab'
-
+import Report from './Component/Report'
 
 
 function App() {
@@ -27,8 +27,9 @@ function App() {
       <div className='content'>
         <Answer></Answer>
       </div>
-
       <Fab></Fab>
+
+      {/* <Report></Report> */}
     </>
   )
 }

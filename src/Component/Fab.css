@@ -14,7 +14,7 @@
 	height: 50px;
 	border-radius: 100%;
 	background: #016fb9;
-	box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* .fab-icon-holder:hover{
@@ -28,6 +28,7 @@
 	height: 100%;
 	font-style: 25px;
 	color: #fff;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .fab{
@@ -73,7 +74,7 @@
 	font-size: 16px;
 	background: #f8f8f8;
 	color: #0f0f0f;
-	box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+	box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
 	margin-right: 1.5rem;
     margin-top: 1.5rem;
 
