@@ -1,26 +1,17 @@
 import React, { useState } from 'react';
-import styles from './Feedback.module.css';
+import styles from './Suggestion.module.css';
 import pin from '../assets/FAB/attach-file.png';
 
-const Feedback = () => {
+const Suggestion = () => {
     const [description, setDescription] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isAnonymous, setIsAnonymous] = useState(false);
 
     const handleDescriptionChange = (event) => {
         setDescription(event.target.value);
     };
 
-    const handleAnonymousChange = (event) => {
-        setIsAnonymous(event.target.checked);
-    };
-
     const handleSubmit = () => {
         // Submit form logic here
-        console.log({
-            description,
-            isAnonymous,
-        });
         setIsSubmitted(true);
     };
 
@@ -29,15 +20,25 @@ const Feedback = () => {
             <div className={styles.container}>
                 {isSubmitted ? (
                     <div className={styles.thankyou}>
-                        Thanks for your valuable feedback!
+                        Thanks for your valuable Suggestion!
                     </div>
                 ) : (
                     <>
                         <div className={styles.heading}>
-                            Let us know about the <b>Feedback</b> about us!
+                            Share your <b>Suggestions</b> with us for a chance to earn rewards!
                         </div>
                         <div className={styles.body}>
                             <form className={styles.form_container}>
+                                <label className={styles.labels}>Choose a section</label><br />
+                                <select className={styles.input_box} name="section">
+                                    <option value="interview-questions">Interview Questions</option>
+                                    <option value="concept-cards">Concept Cards</option>
+                                    <option value="practice-questions">Practice Questions</option>
+                                    <option value="quizzes">Quizzes</option>
+                                </select><br />
+                                <label className={styles.labels} htmlFor="description">
+                                    Describe the suggestion in detail <span className={styles.required}>*</span>
+                                </label><br />
                                 <textarea
                                     className={styles.description}
                                     name="description"
@@ -45,18 +46,6 @@ const Feedback = () => {
                                     value={description}
                                     onChange={handleDescriptionChange}
                                 ></textarea>
-                                <div className={styles.checkbox_container}>
-                                    <input
-                                        type="checkbox"
-                                        id="anonymous"
-                                        name="anonymous"
-                                        checked={isAnonymous}
-                                        onChange={handleAnonymousChange}
-                                    />
-                                    <label htmlFor="anonymous">
-                                        Send this feedback anonymously
-                                    </label>
-                                </div>
                             </form>
                             <div className={styles.btn_container}>
                                 <button type="button" className={styles.attach_button}>
@@ -79,4 +68,4 @@ const Feedback = () => {
     );
 };
 
-export default Feedback;
+export default Suggestion;

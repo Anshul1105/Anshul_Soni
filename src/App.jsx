@@ -28,8 +28,6 @@ function App() {
         <Answer></Answer>
       </div>
       <Fab></Fab>
-
-      {/* <Report></Report> */}
     </>
   )
 }

@@ -7,6 +7,9 @@ import GiveSuggestion from '../assets/FAB/GiveSuggestion.png'
 import ReportIssue from '../assets/FAB/ReportIssue.png'
 import ShareFeedback from '../assets/FAB/ShareFeedback.png'
 import Report from './Report.jsx'
+import Feedback from './Feedback.jsx';
+import Suggestion from './Suggesstion.jsx';
+import Contact from './Contact.jsx';
 
 const Fab = () => {
 
@@ -17,11 +20,25 @@ const Fab = () => {
     };
 
     const [showReport, setShowReport] = useState(false);
+    const [showFeedback,setShowFeedback] = useState(false);
+    const [showSuggestion,setShowSuggestion] = useState(false);
+    const [showContact,setShowContact] = useState(false);
 
     const handleReportClick = () =>{
         setShowReport(!showReport);
     }
 
+    const handleFeedbackClick = () =>{
+        setShowFeedback(!showFeedback);
+    }
+
+    const handleSuggestionClick = () =>{
+        setShowSuggestion(!showSuggestion);
+    }
+
+    const handleContactClick = () =>{
+        setShowContact(!showContact);
+    }
 
 
     return (<>
@@ -38,30 +55,31 @@ const Fab = () => {
             <ul className={`fab-options ${isOpen ? 'open' : ''}`}>
                 <li>
                     <span onClick={handleReportClick} class="fab-label">Report an Issue</span>
-                    <div class="fab-icon-holder" style={{backgroundImage:{ReportIssue},objectFit:"cover"}}>
+                    <div class="fab-icon-holder" >
                         <i onClick={handleReportClick}><img src={ReportIssue} alt="Report Issue" /></i>
                     </div>
-                    {showReport && <Report onClose={()=>{
-                        setShowReport(false)
-                    }}></Report>}
+                    {showReport && <Report ></Report>}
+                    </li>
+                <li>
+                    <span onClick={handleFeedbackClick} class="fab-label">Share Feedback</span>
+                    <div class="fab-icon-holder">
+                        <i onClick={handleFeedbackClick}><img src={ShareFeedback} alt="Share Feedback" /></i>
+                    </div>
+                    {showFeedback && <Feedback></Feedback>}
                 </li>
                 <li>
-                    <span class="fab-label">Share Feedback</span>
+                    <span onClick={handleSuggestionClick} class="fab-label">Give Suggestion</span>
                     <div class="fab-icon-holder">
-                        <i><img src={ShareFeedback} alt="Share Feedback" /></i>
+                        <i onClick={handleSuggestionClick}><img src={GiveSuggestion} alt="Give suggestion" /></i>
                     </div>
+                    {showSuggestion && <Suggestion></Suggestion>}
                 </li>
                 <li>
-                    <span class="fab-label">Give Suggestion</span>
+                    <span onClick={handleContactClick} class="fab-label">Contact Us</span>
                     <div class="fab-icon-holder">
-                        <i><img src={GiveSuggestion} alt="Give suggestion" /></i>
+                        <i onClick={handleContactClick}><img src={ContactUs} alt="Contact Us" /></i>
                     </div>
-                </li>
-                <li>
-                    <span class="fab-label">Contact Us</span>
-                    <div class="fab-icon-holder">
-                        <i><img src={ContactUs} alt="Contact Us" /></i>
-                    </div>
+                    {showContact && <Contact></Contact>}
                 </li>
             </ul>
         </div>

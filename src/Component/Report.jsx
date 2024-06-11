@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Report.module.css';
 import pin from '../assets/FAB/attach-file.png';
 
-const Report = ({ onClose }) => {
+const Report = () => {
     const [description, setDescription] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
 

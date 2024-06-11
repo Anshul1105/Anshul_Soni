@@ -19,7 +19,7 @@
 }
 .btn_container{
     display: flex;
-    justify-content: space-between;
+    flex-direction: row-reverse;
 }
 .form_container{
     padding-top: 1rem;
@@ -35,7 +35,6 @@
     padding: 5px;
     color: #4D4D4D;
     font-size: medium;
-    font-weight: 600;
     border: none;
     border-radius: .5rem;
     background-color: #cccccc;

@@ -1,26 +1,17 @@
 import React, { useState } from 'react';
-import styles from './Feedback.module.css';
+import styles from './Contact.module.css';
 import pin from '../assets/FAB/attach-file.png';
 
-const Feedback = () => {
+const Contact = () => {
     const [description, setDescription] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isAnonymous, setIsAnonymous] = useState(false);
 
     const handleDescriptionChange = (event) => {
         setDescription(event.target.value);
     };
 
-    const handleAnonymousChange = (event) => {
-        setIsAnonymous(event.target.checked);
-    };
-
     const handleSubmit = () => {
         // Submit form logic here
-        console.log({
-            description,
-            isAnonymous,
-        });
         setIsSubmitted(true);
     };
 
@@ -29,15 +20,31 @@ const Feedback = () => {
             <div className={styles.container}>
                 {isSubmitted ? (
                     <div className={styles.thankyou}>
-                        Thanks for your valuable feedback!
+                        Thanks for bringing the issue to our attention.<br></br>
+                        We'll review it shortly and provide an update soon!
                     </div>
                 ) : (
                     <>
                         <div className={styles.heading}>
-                            Let us know about the <b>Feedback</b> about us!
+                            Let us know what <b>your queries</b> are!
                         </div>
                         <div className={styles.body}>
                             <form className={styles.form_container}>
+                                <label className={styles.labels}>Your Name</label><br />
+                                {/* <select className={styles.input_box} name="section">
+                                    <option value="interview-questions">Interview Questions</option>
+                                    <option value="concept-cards">Concept Cards</option>
+                                    <option value="practice-questions">Practice Questions</option>
+                                    <option value="quizzes">Quizzes</option>
+                                </select> */}
+                                <input 
+                                    type='text' 
+                                    className={styles.input_box}
+                                    placeholder='Enter your Name'></input>
+                                <br />
+                                <label className={styles.labels} htmlFor="description">
+                                    What would you like to ask? <span className={styles.required}>*</span>
+                                </label><br />
                                 <textarea
                                     className={styles.description}
                                     name="description"
@@ -45,23 +52,9 @@ const Feedback = () => {
                                     value={description}
                                     onChange={handleDescriptionChange}
                                 ></textarea>
-                                <div className={styles.checkbox_container}>
-                                    <input
-                                        type="checkbox"
-                                        id="anonymous"
-                                        name="anonymous"
-                                        checked={isAnonymous}
-                                        onChange={handleAnonymousChange}
-                                    />
-                                    <label htmlFor="anonymous">
-                                        Send this feedback anonymously
-                                    </label>
-                                </div>
                             </form>
                             <div className={styles.btn_container}>
-                                <button type="button" className={styles.attach_button}>
-                                    <img src={pin} alt="pin" />Attach
-                                </button>
+                            
                                 <button
                                     onClick={handleSubmit}
                                     type="button"
@@ -79,4 +72,4 @@ const Feedback = () => {
     );
 };
 
-export default Feedback;
+export default Contact;
