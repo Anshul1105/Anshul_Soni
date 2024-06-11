@@ -26,20 +26,32 @@ const Fab = () => {
 
     const handleReportClick = () =>{
         setShowReport(!showReport);
+        setShowFeedback(false);
+        setShowSuggestion(false);
+        setShowContact(false);
     }
 
     const handleFeedbackClick = () =>{
+        setShowReport(false);
         setShowFeedback(!showFeedback);
+        setShowSuggestion(false);
+        setShowContact(false);
     }
 
     const handleSuggestionClick = () =>{
+        setShowReport(false);
+        setShowFeedback(false);
         setShowSuggestion(!showSuggestion);
+        setShowContact(false);
     }
 
     const handleContactClick = () =>{
+        setShowReport(false);
+        setShowFeedback(false);
+        setShowSuggestion(false);
         setShowContact(!showContact);
     }
-
+    
 
     return (<>
         <div class="fab-container">
@@ -51,7 +63,6 @@ const Fab = () => {
             </div>
 
 
-            {/* <ul class="fab-options"> */}
             <ul className={`fab-options ${isOpen ? 'open' : ''}`}>
                 <li>
                     <span onClick={handleReportClick} class="fab-label">Report an Issue</span>
